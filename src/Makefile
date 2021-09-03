@@ -18,7 +18,7 @@ LOPT_DBG+=-lm
 IOPTCXX=$(IOPT) -std=c++14
 IOPTCXX_DBG=$(IOPT_DBG) -std=c++14
 
-all: $(BUILD_DIR)/naive_max_pairwise_algo.exe
+all: $(BUILD_DIR)/max_pairwise_algo.exe
 
 OBJ:=$(patsubst %.cpp,%.o,   $(patsubst %.c,%.o,$(SRC))   )
 OBJ:=$(patsubst %,${BUILD_DIR}/%,$(OBJ) )
@@ -39,7 +39,7 @@ ${BUILD_DIR}/%_dbg.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) $(IOPT_DBG)  -c $< -o $@
 
-${BUILD_DIR}/naive_max_pairwise_algo.exe: ${BUILD_DIR}/naive_max_pairwise_algo.o
+${BUILD_DIR}/max_pairwise_algo.exe: ${BUILD_DIR}/max_pairwise_algo.o
 	rm -f $@
 	g++ $< $(LOPT_DBG) -o $@
 
