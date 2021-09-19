@@ -20,7 +20,8 @@ IOPTCXX_DBG=$(IOPT_DBG) -std=c++14
 
 all: $(BUILD_DIR)/money_change.exe \
 $(BUILD_DIR)/max_loot.exe \
-$(BUILD_DIR)/max_ad_revenue.exe
+$(BUILD_DIR)/max_ad_revenue.exe \
+$(BUILD_DIR)/collect_signs.exe
 
 OBJ:=$(patsubst %.cpp,%.o,   $(patsubst %.c,%.o,$(SRC))   )
 OBJ:=$(patsubst %,${BUILD_DIR}/%,$(OBJ) )
@@ -52,6 +53,10 @@ ${BUILD_DIR}/max_loot.exe: ${BUILD_DIR}/max_loot.o
 ${BUILD_DIR}/max_ad_revenue.exe: ${BUILD_DIR}/max_ad_revenue.o
 	rm -f $@
 	g++ $< $(LOPT_DBG) -o $@
-	
+
+${BUILD_DIR}/collect_signs.exe: ${BUILD_DIR}/collect_signs.o
+	rm -f $@
+	g++ $< $(LOPT_DBG) -o $@
+		
 clean:
 	cd ${BUILD_DIR}; rm -f `find . -name "*.o"`
