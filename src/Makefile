@@ -1,4 +1,4 @@
-SUBDIRS = week_1_and_2 week_3 week_4
+SUBDIRS = week_1_and_2 week_3 week_4 week_5
 
 all: $(SUBDIRS)
 
