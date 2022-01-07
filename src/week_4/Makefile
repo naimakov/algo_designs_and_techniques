@@ -19,7 +19,8 @@ IOPTCXX=$(IOPT) -std=c++14
 IOPTCXX_DBG=$(IOPT_DBG) -std=c++14
 
 all: $(BUILD_DIR)/binary_search.exe \
-$(BUILD_DIR)/majority_element.exe	
+$(BUILD_DIR)/majority_element.exe \
+$(BUILD_DIR)/sorting.exe	
 
 OBJ:=$(patsubst %.cpp,%.o,   $(patsubst %.c,%.o,$(SRC))   )
 OBJ:=$(patsubst %,${BUILD_DIR}/%,$(OBJ) )
@@ -45,6 +46,10 @@ ${BUILD_DIR}/binary_search.exe: ${BUILD_DIR}/binary_search.o
 	g++ $< $(LOPT_DBG) -o $@
 
 ${BUILD_DIR}/majority_element.exe: ${BUILD_DIR}/majority_element.o
+	rm -f $@
+	g++ $< $(LOPT_DBG) -o $@
+
+${BUILD_DIR}/sorting.exe: ${BUILD_DIR}/sorting.o
 	rm -f $@
 	g++ $< $(LOPT_DBG) -o $@
 			
