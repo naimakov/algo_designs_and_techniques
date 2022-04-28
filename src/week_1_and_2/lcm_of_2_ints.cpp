@@ -1,9 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <ctime>
-#include <stack>
+#include <iostream>
 
-using std::vector;
 using std::cin;
 using std::cout;
 
@@ -17,44 +14,40 @@ time_t t_start, t_end;
  * Constraints: 1<=a,b<=2*10^9
  * Time limit: 1 sec
  * Memory limit: 512 mb
-*/
-void tic(int mode=0){
- 
- if (mode==0)
-  t_start = time(0);
- else{
-  t_end = time(0);
-  cout<< "Elapsed time is " << difftime(t_end,t_start) << " seconds\n";
- }
+ */
+void tic(int mode = 0) {
 
+  if (mode == 0)
+    t_start = time(0);
+  else {
+    t_end = time(0);
+    cout << "Elapsed time is " << difftime(t_end, t_start) << " seconds\n";
+  }
 }
-void toc(){ tic(1); }
+void toc() { tic(1); }
 
 long long lcm_naive(unsigned int a, unsigned int b) {
-  for (long l = 1; l <= (long long) a * b; ++l)
+  for (long l = 1; l <= (long long)a * b; ++l)
     if (l % a == 0 && l % b == 0)
       return l;
 
-  return (long long) a * b;
+  return (long long)a * b;
 }
-unsigned int gcd_fast(unsigned int a, unsigned int b)
-{
-    if (b == 0)
-        return a;
-    unsigned int a_tmp = a % b;
-    return gcd_fast(b,a_tmp);
+unsigned int gcd_fast(unsigned int a, unsigned int b) {
+  if (b == 0)
+    return a;
+  unsigned int a_tmp = a % b;
+  return gcd_fast(b, a_tmp);
 }
-long long lcm_fast(unsigned int a, unsigned int b)
-{  
-    if (a == 0 || b == 0) return 0;
-    unsigned int gcd = gcd_fast(a,b);
-    a /= gcd;
-    return (long long) a*b;
-    
+long long lcm_fast(unsigned int a, unsigned int b) {
+  if (a == 0 || b == 0)
+    return 0;
+  unsigned int gcd = gcd_fast(a, b);
+  a /= gcd;
+  return (long long)a * b;
 }
 
-int main() 
-{
+int main() {
   int a, b;
   std::cin >> a >> b;
   tic();

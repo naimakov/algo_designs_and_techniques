@@ -1,9 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <ctime>
-#include <stack>
+#include <iostream>
 
-using std::vector;
 using std::cin;
 using std::cout;
 
@@ -17,59 +14,54 @@ time_t t_start, t_end;
  * Constraints: 0<=n<=10^7
  * Time limit: 1 sec
  * Memory limit: 512 mb
-*/
-void tic(int mode=0){
- 
- if (mode==0)
-  t_start = time(0);
- else{
-  t_end = time(0);
-  cout<< "Elapsed time is " << difftime(t_end,t_start) << " seconds\n";
- }
+ */
+void tic(int mode = 0) {
 
+  if (mode == 0)
+    t_start = time(0);
+  else {
+    t_end = time(0);
+    cout << "Elapsed time is " << difftime(t_end, t_start) << " seconds\n";
+  }
 }
-void toc(){ tic(1); }
+void toc() { tic(1); }
 
-unsigned long long get_fibonacci_last_digit_naive(unsigned long long n)
-{
-    if (n <= 1)
-        return n;
+unsigned long long get_fibonacci_last_digit_naive(unsigned long long n) {
+  if (n <= 1)
+    return n;
 
-    unsigned long long previous = 0;
-    unsigned long long current  = 1;
+  unsigned long long previous = 0;
+  unsigned long long current = 1;
 
-    for (unsigned long long i = 0; i < n - 1; ++i) {
-        unsigned long long tmp_previous = previous;
-        previous = current;
-        current = tmp_previous + current;
-    }
+  for (unsigned long long i = 0; i < n - 1; ++i) {
+    unsigned long long tmp_previous = previous;
+    previous = current;
+    current = tmp_previous + current;
+  }
 
-    return current % 10;
+  return current % 10;
 }
-unsigned long long get_fibonacci_last_digit_fast(unsigned long long n)
-{
-    if (n <= 1)
-        return n;
+unsigned long long get_fibonacci_last_digit_fast(unsigned long long n) {
+  if (n <= 1)
+    return n;
 
-    unsigned long long previous = 0;
-    unsigned long long current  = 1;
+  unsigned long long previous = 0;
+  unsigned long long current = 1;
 
-    for (unsigned long long i = 0; i < n - 1; ++i) {
-        unsigned long long tmp_previous = previous;
-        previous = current;
-        current = (tmp_previous + current) % 10;
-    }
+  for (unsigned long long i = 0; i < n - 1; ++i) {
+    unsigned long long tmp_previous = previous;
+    previous = current;
+    current = (tmp_previous + current) % 10;
+  }
 
-    return current;
-
+  return current;
 }
 
-int main() 
-{
-    unsigned long long n;
-    std::cin >> n;
-    tic();
-    unsigned long long c = get_fibonacci_last_digit_fast(n);
-    std::cout << c << '\n';
-    toc();
+int main() {
+  unsigned long long n;
+  std::cin >> n;
+  tic();
+  unsigned long long c = get_fibonacci_last_digit_fast(n);
+  std::cout << c << '\n';
+  toc();
 }
