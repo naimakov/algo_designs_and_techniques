@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -19,7 +20,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -51,8 +51,7 @@ int get_fibonacci_partial_sum_naive(unsigned long long from,
 }
 
 int get_nth_fibonacci_fast(int n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   int previous = 0;
   int current = 1;
@@ -65,8 +64,7 @@ int get_nth_fibonacci_fast(int n) {
   return current;
 }
 int get_fibonacci_sum_fast(int n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
   int previous = 0;
   int current = 1;
 
@@ -110,8 +108,7 @@ void StressTest(int numIter, unsigned long long range_n) {
       break;
     }
   }
-  if (i == numIter)
-    std::cout << "All tests passed!";
+  if (i == numIter) std::cout << "All tests passed!";
 }
 int main() {
   /*

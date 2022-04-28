@@ -22,7 +22,6 @@ time_t t_start, t_end;
  */
 
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -32,8 +31,8 @@ void tic(int mode = 0) {
 }
 void toc() { tic(1); }
 
-unsigned long long
-MaxPairwiseProductNaive(const vector<unsigned long long> &numbers) {
+unsigned long long MaxPairwiseProductNaive(
+    const vector<unsigned long long> &numbers) {
   unsigned long long result = 0, temp = 0;
   int n = numbers.size();
   for (int i = 0; i < n; ++i) {
@@ -71,8 +70,8 @@ unsigned long long MaxPairwiseProductFast(vector<unsigned long long> &numbers) {
   return numbers[n - 1] * numbers[n - 2];
 }
 
-unsigned long long
-MaxPairwiseProductFast2(vector<unsigned long long> &numbers) {
+unsigned long long MaxPairwiseProductFast2(
+    vector<unsigned long long> &numbers) {
   int n = numbers.size();
   std::stack<int> stack;
   stack.push(0);

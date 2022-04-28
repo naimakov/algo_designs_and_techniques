@@ -16,7 +16,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -28,20 +27,17 @@ void toc() { tic(1); }
 
 long long lcm_naive(unsigned int a, unsigned int b) {
   for (long l = 1; l <= (long long)a * b; ++l)
-    if (l % a == 0 && l % b == 0)
-      return l;
+    if (l % a == 0 && l % b == 0) return l;
 
   return (long long)a * b;
 }
 unsigned int gcd_fast(unsigned int a, unsigned int b) {
-  if (b == 0)
-    return a;
+  if (b == 0) return a;
   unsigned int a_tmp = a % b;
   return gcd_fast(b, a_tmp);
 }
 long long lcm_fast(unsigned int a, unsigned int b) {
-  if (a == 0 || b == 0)
-    return 0;
+  if (a == 0 || b == 0) return 0;
   unsigned int gcd = gcd_fast(a, b);
   a /= gcd;
   return (long long)a * b;

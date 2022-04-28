@@ -1,5 +1,6 @@
-#include <algorithm>
 #include <assert.h>
+
+#include <algorithm>
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -39,10 +40,8 @@ int get_majority_element_naive(vector<int> &a) {
     curr = a[i];
     count = 0;
     for (int j = 0; j < n; j++) {
-      if (a[j] == curr)
-        count++;
-      if (count > n / 2)
-        return 1;
+      if (a[j] == curr) count++;
+      if (count > n / 2) return 1;
     }
   }
   return 0;
@@ -63,17 +62,14 @@ int get_majority_element_smart(vector<int> &a) {
   }
   count = 0;
   for (int i = 0; i < n; i++) {
-    if (a[i] == curr)
-      count++;
+    if (a[i] == curr) count++;
   }
   return (count > n / 2);
 }
 
 int get_majority_element_divconq(vector<int> &a, int left, int right) {
-  if (left == right)
-    return -1;
-  if (left + 1 == right)
-    return a[left];
+  if (left == right) return -1;
+  if (left + 1 == right) return a[left];
   // write your code here
   return -1;
 }

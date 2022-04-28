@@ -1,5 +1,6 @@
-#include <algorithm>
 #include <assert.h>
+
+#include <algorithm>
 #include <ctime>
 #include <iostream>
 #include <random>

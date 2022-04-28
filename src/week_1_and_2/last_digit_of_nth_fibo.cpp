@@ -16,7 +16,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -27,8 +26,7 @@ void tic(int mode = 0) {
 void toc() { tic(1); }
 
 unsigned long long get_fibonacci_last_digit_naive(unsigned long long n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   unsigned long long previous = 0;
   unsigned long long current = 1;
@@ -42,8 +40,7 @@ unsigned long long get_fibonacci_last_digit_naive(unsigned long long n) {
   return current % 10;
 }
 unsigned long long get_fibonacci_last_digit_fast(unsigned long long n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   unsigned long long previous = 0;
   unsigned long long current = 1;

@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -50,8 +51,7 @@ int binary_search(const vector<int> &a, int x) {
 
 int linear_search(const vector<int> &a, int x) {
   for (size_t i = 0; i < a.size(); ++i) {
-    if (a[i] == x)
-      return i;
+    if (a[i] == x) return i;
   }
   return -1;
 }
@@ -75,12 +75,10 @@ void StressTest(int numIter, int range_n) {
       break;
     }
   }
-  if (i == numIter)
-    std::cout << "All tests passed!";
+  if (i == numIter) std::cout << "All tests passed!";
 }
 
 int main() {
-
   int n;
   std::cin >> n;
   vector<int> a(n);

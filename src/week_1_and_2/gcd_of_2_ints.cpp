@@ -16,7 +16,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -38,8 +37,7 @@ unsigned int gcd_naive(unsigned int a, unsigned int b) {
   return current_gcd;
 }
 unsigned int gcd_fast(unsigned int a, unsigned int b) {
-  if (b == 0)
-    return a;
+  if (b == 0) return a;
   unsigned int a_tmp = a % b;
   return gcd_fast(b, a_tmp);
 }

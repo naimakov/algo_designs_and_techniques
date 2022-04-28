@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -54,8 +55,7 @@ void insertion_sort(int *p, int n) {
 long long max_dot_product(int *a, int *b, int n) {
   long long result = 0;
 
-  if (n == 0)
-    return result;
+  if (n == 0) return result;
 
   insertion_sort(a, n);
   insertion_sort(b, n);

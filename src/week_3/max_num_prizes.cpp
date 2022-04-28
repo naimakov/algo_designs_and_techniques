@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -52,8 +53,7 @@ vector<int> optimal_summands_naive(int n) {
         break;
       }
     }
-    if (i == n - i)
-      flag = 0;
+    if (i == n - i) flag = 0;
     if (flag) {
       n -= i;
       summands.push_back(i);
@@ -73,12 +73,9 @@ vector<int> optimal_summands_fast(int n) {
   }
   while (n > 0) {
     flag = 1;
-    if (!summands.empty() && summands.back() >= n - i)
-      flag = 0;
-    if (i == n - i)
-      flag = 0;
-    if (n == i)
-      flag = 1;
+    if (!summands.empty() && summands.back() >= n - i) flag = 0;
+    if (i == n - i) flag = 0;
+    if (n == i) flag = 1;
     if (flag) {
       n -= i;
       summands.push_back(i);
@@ -102,8 +99,7 @@ void StressTest(int numIter, int range_n) {
       break;
     }
   }
-  if (i == numIter)
-    std::cout << "All tests passed!";
+  if (i == numIter) std::cout << "All tests passed!";
 }
 
 int main() {

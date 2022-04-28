@@ -1,5 +1,6 @@
-#include <algorithm>
 #include <assert.h>
+
+#include <algorithm>
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -57,9 +58,9 @@ vector<int> optimal_sequence(int n) {
 vector<int> dp_optimal_sequence(int n) {
   std::vector<vector<int>> sequences(n + 1);
   std::vector<int> MinNumOps(n + 1);
-  int NumOps = 0; // number of operations
+  int NumOps = 0;  // number of operations
   int id_ops =
-      0; // id of the operation: 0 - for x + 1, 1 - for 2*x, 2 - for 3*x
+      0;  // id of the operation: 0 - for x + 1, 1 - for 2*x, 2 - for 3*x
 
   MinNumOps[0] = 0;
   MinNumOps[1] = 0;
@@ -89,15 +90,15 @@ vector<int> dp_optimal_sequence(int n) {
       }
     }
     switch (id_ops) {
-    case 0:
-      sequences[i] = sequences[i - 1];
-      break;
-    case 1:
-      sequences[i] = sequences[i / 2];
-      break;
-    case 2:
-      sequences[i] = sequences[i / 3];
-      break;
+      case 0:
+        sequences[i] = sequences[i - 1];
+        break;
+      case 1:
+        sequences[i] = sequences[i / 2];
+        break;
+      case 2:
+        sequences[i] = sequences[i / 3];
+        break;
     }
     sequences[i].push_back(i);
   }

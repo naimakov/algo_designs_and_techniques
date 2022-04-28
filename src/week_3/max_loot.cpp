@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -24,7 +25,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -58,8 +58,7 @@ double get_optimal_value(int capacity, vector<int> weights,
   int n = weights.size();
   double value = 0.0;
 
-  if (capacity == 0)
-    return value;
+  if (capacity == 0) return value;
 
   int index[n];
   double max_vpi[n];
@@ -71,8 +70,7 @@ double get_optimal_value(int capacity, vector<int> weights,
   insertion_sort(max_vpi, index, n);
 
   for (int i = 0; i < n; i++) {
-    if (capacity == 0)
-      return value;
+    if (capacity == 0) return value;
     int a = weights[index[i]] < capacity ? weights[index[i]] : capacity;
     value += a * max_vpi[i];
     capacity -= a;

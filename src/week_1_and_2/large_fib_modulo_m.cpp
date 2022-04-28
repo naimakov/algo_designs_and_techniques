@@ -17,7 +17,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -29,8 +28,7 @@ void toc() { tic(1); }
 
 unsigned long long get_fibonacci_huge_naive(unsigned long long n,
                                             unsigned long long m) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   unsigned long long previous = 0;
   unsigned long long current = 1;
@@ -45,8 +43,7 @@ unsigned long long get_fibonacci_huge_naive(unsigned long long n,
 }
 
 unsigned long long get_pisano_period(unsigned long long m) {
-  if (m == 1)
-    return 1;
+  if (m == 1) return 1;
   unsigned long long previous = 0;
   unsigned long long current = 1;
   unsigned long long period = 0;
@@ -65,13 +62,11 @@ unsigned long long get_pisano_period(unsigned long long m) {
 
 unsigned long long get_fibonacci_huge_fast(unsigned long long n,
                                            unsigned long long m) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
   unsigned long long period = get_pisano_period(m);
 
   n = n % period;
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
   unsigned long long previous = 0;
   unsigned long long current = 1;
 

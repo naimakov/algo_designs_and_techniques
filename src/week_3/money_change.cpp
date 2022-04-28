@@ -1,4 +1,5 @@
 #include <assert.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
@@ -20,7 +21,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -32,8 +32,7 @@ void toc() { tic(1); }
 
 int get_change(int m) {
   int count = 0;
-  if (!m)
-    return 0;
+  if (!m) return 0;
   count += m / 10;
   m %= 10;
   count += m / 5;

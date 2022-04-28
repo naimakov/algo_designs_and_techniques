@@ -17,7 +17,6 @@ time_t t_start, t_end;
  * Memory limit: 512 mb
  */
 void tic(int mode = 0) {
-
   if (mode == 0)
     t_start = time(0);
   else {
@@ -28,8 +27,7 @@ void tic(int mode = 0) {
 void toc() { tic(1); }
 
 int get_fibonacci_sum_naive(long long n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   long long previous = 0;
   long long current = 1;
@@ -45,12 +43,10 @@ int get_fibonacci_sum_naive(long long n) {
   return sum;
 }
 int get_fibonacci_sum_fast(long long n) {
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
 
   n = n % 60;
-  if (n <= 1)
-    return n;
+  if (n <= 1) return n;
   int previous = 0;
   int current = 1;
 
